@@ -34,3 +34,5 @@ There are three types of axis (X,Y and Z)
 There are two types of accelerations: Body acceleration and gravity acceleration.
 There are two types of modifications for the variables: Magnitude measurement and Fast Fourier Transform
 There are two types of measurement representation: Mean and Standard Deviation.
+
+The name of all variables are found in the Code Book here: https://github.com/AndresGaleano/Getting-and-Cleaning-Data/blob/master/Code%20Book.md
