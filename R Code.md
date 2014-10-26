@@ -26,6 +26,35 @@ colnames(Data_set)[1:2]=c("Activity ID","ActivityName")
 #### Afterwards, we create a Data Set with only the columns containing the mean and standard deviation of measures
 Mean_SD=Data_set[,c(2,3,grep("mean()",colnames(Data_set),fixed=T),grep("std()",colnames(Data_set),fixed=T))]
 
+#### We rename all the features to be more descriptive
+features_mean_sd=c("Subject","ActivityName","mean body aceleration calculated by the acelerometer on the X axis","mean body aceleration calculated by the acelerometer on the Y axis","mean body aceleration calculated by the acelerometer on the Z axis"
+                   ,"mean gravity aceleration calculated by the acelerometer on the X axis","mean gravity aceleration calculated by the acelerometer on the Y axis","mean gravity aceleration calculated by the acelerometer on the Z axis"
+                   ,"mean Jerk of the body on the X axis, calculated by the accelerometer","mean Jerk of the body on the Y axis, calculated by the accelerometer","mean Jerk of the body on the Y axis, calculated by the accelerometer"
+                   ,"mean body aceleration calculated by the gyroscope on the X axis","mean body aceleration calculated by the gyroscope on the Y axis","mean body aceleration calculated by the gyroscope on the Z axis"
+                   ,"mean Jerk of the body on the X axis, calculated by the gyroscope","mean Jerk of the body on the Y axis, calculated by the gyroscope","mean Jerk of the body on the Z axis, calculated by the gyroscope"
+                   ,"mean of the magnitude of the body acceleration,calculated by the acceleratometer","mean of the magnitude of the gravity acceleration,calculated by the acceleratometer","mean of the magnitude of the body Jerk,calculated by the acceleratometer"
+                   ,"mean of the magnitude of the body acceleration,calculated by the gyroscope","mean of the magnitude of the body Jerk,calculated by the gyroscope"
+                   
+                   ,"mean body aceleration frequency domain signals calculated by the acelerometer on the X axis","mean body aceleration frequency domain signals calculated by the acelerometer on the Y axis","mean body aceleration frequency domain signals calculated by the acelerometer on the Z axis"
+                   ,"mean Jerk of the body frequency domain signals on the X axis, calculated by the accelerometer","mean Jerk of the body frequency domain signals on the Y axis, calculated by the accelerometer","mean Jerk of the body frequency domain signals on the Z axis, calculated by the accelerometer"
+                   ,"mean body aceleration frequency domain signals calculated by the gyroscope on the X axis","mean body aceleration frequency domain signals calculated by the gyroscope on the Y axis","mean body aceleration frequency domain signals calculated by the gyroscope on the Z axis"
+                   ,"mean of the magnitude of the body acceleration frequency domain signals ,calculated by the acceleratometer","mean of the magnitude of the body Jerk frequency domain signals,calculated by the acceleratometer","mean of the magnitude of the body acceleration frequency domain signals ,calculated by the gyroscope"
+                   ,"mean of the magnitude of the body acceleration Jerk frequency domain signals ,calculated by the gyroscope"
+                   
+                   ,"standard deviation of body aceleration calculated by the acelerometer on the X axis","standard deviation of body aceleration calculated by the acelerometer on the Y axis","standard deviation of body aceleration calculated by the acelerometer on the Z axis"
+                   ,"standard deviation of gravity aceleration calculated by the acelerometer on the X axis","standard deviation of gravity aceleration calculated by the acelerometer on the Y axis","standard deviation of gravity aceleration calculated by the acelerometer on the Z axis"
+                   ,"standard deviation of Jerk of the body on the X axis, calculated by the accelerometer","standard deviation of Jerk of the body on the Y axis, calculated by the accelerometer","standard deviation of Jerk of the body on the Z axis, calculated by the accelerometer"
+                   ,"standard deviation of body aceleration calculated by the gyroscope on the X axis","standard deviation of body aceleration calculated by the gyroscope on the Y axis","standard deviation of body aceleration calculated by the gyroscope on the Z axis"
+                   ,"standard deviation of Jerk of the body on the X axis, calculated by the gyroscope","standard deviation of Jerk of the body on the Y axis, calculated by the gyroscope","standard deviation of Jerk of the body on the Z axis, calculated by the gyroscope"
+                   ,"standard deviation of of the magnitude of the body acceleration,calculated by the acceleratometer","standard deviation of of the magnitude of the gravity acceleration,calculated by the acceleratometer","standard deviation of of the magnitude of the body Jerk,calculated by the acceleratometer"
+                   ,"standard deviation of of the magnitude of the body acceleration,calculated by the gyroscope","standard deviation of of the magnitude of the body Jerk,calculated by the gyroscope"
+                   
+                   ,"standard deviation of body aceleration frequency domain signals calculated by the acelerometer on the X axis","standard deviation of body aceleration frequency domain signals calculated by the acelerometer on the Y axis","standard deviation of body aceleration frequency domain signals calculated by the acelerometer on the Z axis"
+                   ,"standard deviation of Jerk of the body frequency domain signals on the X axis, calculated by the accelerometer","standard deviation of Jerk of the body frequency domain signals on the Y axis, calculated by the accelerometer","standard deviation of Jerk of the body frequency domain signals on the Z axis, calculated by the accelerometer"
+                   ,"standard deviation of body aceleration frequency domain signals calculated by the gyroscope on the X axis","standard deviation of body aceleration frequency domain signals calculated by the gyroscope on the Y axis","standard deviation of body aceleration frequency domain signals calculated by the gyroscope on the Z axis"
+                   ,"standard deviation of of the magnitude of the body acceleration frequency domain signals ,calculated by the acceleratometer","standard deviation of of the magnitude of the body Jerk frequency domain signals,calculated by the acceleratometer","standard deviation of of the magnitude of the body acceleration frequency domain signals ,calculated by the gyroscope"
+                   ,"standard deviation of of the magnitude of the body acceleration Jerk frequency domain signals ,calculated by the gyroscope")
+
 #### We use the table data fram command to make it easier to work with
 DF_Mean_SD=tbl_df(Mean_SD)
 
@@ -33,3 +62,5 @@ DF_Mean_SD=tbl_df(Mean_SD)
 #### We also store the resulting data frame in a file called "FINAL_DF.txt".
 FINAL_DF=group_by(DF_Mean_SD,Subject,ActivityName) %>% summarise_each("mean")
 write.table(FINAL_DF,"FINAL_DF.txt",sep=";",row.name=FALSE)
+
+read.table('DF_FINAL.txt')
