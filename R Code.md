@@ -1,4 +1,4 @@
-R Code: This file contains the R Code used for transforming the original Data Set (not provided) into the submitted Data Frame.
+R Code: This file contains the R Code used for transforming the original Data Set (not provided) into the submitted Data Frame. It is worth mentioning that the 'features.txt' was modified with the names found in the 'FINAL_DF.txt'.
 
 #### In this code, we will put together a collection of data bases and name them accordingly.
 library(dplyr) ### We load al the required libraries, in this case only one
